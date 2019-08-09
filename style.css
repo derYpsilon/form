@@ -114,6 +114,10 @@ html {
 	background-color: #ffdb4d;
 	color: #000;
 }
+.form__button_disabled {
+    color: grey;
+    background-color: #e4d59a;
+}
 
 .form__input:valid:not(:placeholder-shown) {
 	border-color: #ffdb4d;
