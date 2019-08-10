@@ -1,7 +1,7 @@
 # Элемент Формы регистрации
 -------------
 
-[Страница проекта](https://github.com/derYpsilon/form)
+[Страница проекта](https://derypsilon.github.io/form/)
 
 ## Версия 0.0.2
 
