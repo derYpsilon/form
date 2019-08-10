@@ -6,7 +6,7 @@ class FormValidator {
     this.submitButton = submitButton;
     this.disabledSubmitClass = disabledSubmitClass;
     document.forms[this.formName].addEventListener('input', this.inputHandler.bind(this));
-    this.disableSubmitButton();
+    this.inputHandler();
   }
 
   inputHandler() {
