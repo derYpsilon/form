@@ -5,7 +5,8 @@ class FormValidator {
     this.formName = formName;
     this.submitButton = submitButton;
     this.disabledSubmitClass = disabledSubmitClass;
-    document.forms[this.formName].addEventListener('input',this.inputHandler.bind(this));
+    document.forms[this.formName].addEventListener('input', this.inputHandler.bind(this));
+    this.inputHandler();
   }
 
   inputHandler() {
@@ -35,43 +36,36 @@ class FormValidator {
   }
 
   isValid(elementToCheck) {
+    /*
+    ! Получаем элемент для вывода сообщения об ошибке, в данном случае нет необходимости
+
     const errorElement = document.querySelector(`#error-${elementToCheck.name}`)
-
+    */
     if (!elementToCheck.validity.valid) {
-
+      /*
+      ! Здесь при желании можно обрабатывать тип ошибок и выводить сообщения 
+      
       if (elementToCheck.validity.typeMismatch) { errorElement.textContent = 'Здесь должна быть ссылка'; }
       if (elementToCheck.value.length < Number(elementToCheck.getAttribute('minlength'))) {
         if (elementToCheck.validity.valueMissing) { errorElement.textContent = 'Это обязательное поле'; }
         else { errorElement.textContent = 'Длина должна быть от 2 до 30 символов'; }
       }
+      */
       return false;
     } else {
+      /*
+      ! Здесь убирается сообщение об ошибке, в данном случае оставляем этот функционал в HTML файле
+
       errorElement.textContent = '';
+      */
       return true;
     }
   }
 
-  submitForm(event) {
-    event.preventDefault();
-    const formData=[];
-    let form = document.forms[this.formName];
-    Array.from(form.elements).forEach(function (item) {
-      if (item.nodeName == 'INPUT') {
-        formData[item.name] = item.value;
-      }
-    }.bind(this));
-    //this.saveMe(this.formData);
-  }
-
-  destroyForm() {
-    Array.from(form.elements).forEach(function (item) {
-      if (item.nodeName == 'INPUT') {
-        item.removeEventListener('input', event => this.inputHandler(event));
-      }
-    }.bind(this));
-    form.removeEventListener('submit', event => this.submitForm(event));
+  cleanUp() {
+    document.forms[this.formName].removeEventListener('input', this.inputHandler.bind(this));
   }
 }
 
-const validator = new FormValidator('register',document.querySelector('.form__button'), 'form__button_disabled');
+const validator = new FormValidator('register', document.querySelector('.form__button'), 'form__button_disabled');
 
