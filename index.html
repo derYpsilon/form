@@ -22,13 +22,13 @@
                 <h3>Форма регистрации</h3>
                 <fieldset class="form__fieldset">
                     <div class="form__field">
-                        <input class="form__input" type="text" name="name" pattern="^[А-ЯЁ]{1}[А-ЯЁа-яё\-]{1,}[а-яё]{1}"
+                        <input class="form__input" type="text" name="name" pattern="^[А-ЯЁ]{1}[А-ЯЁа-яё]{1,}"
                             placeholder="Имя" minlength="2" maxlength="20" required />
                         <span class="form__error" id="error-name">имя с заглавной буквы, например: Василий</span>
                     </div>
                     <div class="form__field">
                         <input class="form__input" type="email" name="email"
-                            pattern="^[a-zA-Z0-9]{1}[\w\.-]*@\w*[a-zA-Z0-9]{1}\.\w*[a-zA-Z0-9]{1}"
+                            pattern="^[a-zA-Z]{1}[\w\.-]*@\w*[a-zA-Z0-9]{1}\.\w*[a-zA-Z0-9]{1}"
                             placeholder="E-Mail" />
                         <span class="form__error" id="error-email">e-mail в формате: sega@yandex.ru</span>
                     </div>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="form__field">
                         <input class="form__input" type="url" name="site"
-                            pattern='^https?:\/\/(((www\.)?([A-Za-z0-9][\w-]*[A-Za-z0-9]?\.\w+[A-Za-z]))|(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}))([\w\/-]*)?(:\d{1,5})?(\?[\w=&]+)?#?'
+                            pattern='^https?:\/\/(((www\.)?([A-Za-z0-9][\w-]*[A-Za-z0-9]?\.\w+[A-Za-z]))|((\d{1,3}\.){3}\d{1,3}))([\w\/-]*)?(:\d{2,5})?(\?[\w=&]+)?#?'
                             placeholder="Ваш сайт" />
                         <span class="form__error" id="error-site">URL в формате: http://mysite.ru</span>
                     </div>
